@@ -218,6 +218,37 @@
 					
 				}
 				
+				$scope.overSelected = function(){
+					$scope.campaign.product="";
+					$scope.campaign.region="";
+					$scope.date="";
+					$scope.name="";
+					$scope.info="";
+					$scope.campaignName="";
+				}
+				
+				$scope.productSelected = function(){
+					$scope.campaign.region="";
+					$scope.date="";
+					$scope.name="";
+					$scope.info="";
+					$scope.campaignName="";
+				}
+				
+				$scope.dateSelected = function(){
+					$scope.campaign.region="";
+					$scope.name="";
+					$scope.info="";
+					$scope.campaignName="";
+				}
+				
+				$scope.regionSelected = function(){
+					$scope.date="";
+					$scope.name="";
+					$scope.info="";
+					$scope.campaignName="";
+				}
+				
 				$scope.getCampaignNAme = function(){
 					console.log($scope.name);
 					if($scope.campaign.client.match(/\bTINE/gi)){
@@ -306,7 +337,7 @@
 					<!--	<select id ="over" ng-change="overSelected()" ng-model="campaign.over" material-select watch required>
 							<option ng-repeat="over in overList track by $index">{{over}}</option>
 						</select>-->
-						<input list="over" name="browser" ng-model="campaign.over" placeholder="Plukke ut Overprodukt">
+						<input list="over" name="browser" ng-model="campaign.over" placeholder="Plukke ut Overprodukt" ng-change="overSelected()">
 						<datalist id="over">
 							<option ng-repeat="over in overList track by $index">{{over}}</option>
 						</datalist>							
@@ -320,7 +351,7 @@
 					<!--	<select id ="product" ng-change="productSelected()" ng-model="campaign.product" material-select watch required>
 							<option ng-repeat="product in productList">{{product}}</option>
 						</select-->
-						<input list="product" name="browser" ng-model="campaign.product" placeholder="Plukke ut Produkt">
+						<input list="product" name="browser" ng-model="campaign.product" placeholder="Plukke ut Produkt" ng-change="productSelected()">
 						<datalist id="product">
 							<option ng-repeat="product in productList">{{product}}</option>
 						</datalist>							
@@ -341,7 +372,7 @@
 						<p>Date</p>
 					</div>
 					<div class="col s12 m7 l9">
-						<input type="text" id="date" class="datepicker" ng-model="date" placeholder="Tast inn Date">								
+						<input type="text" id="date" class="datepicker" ng-model="date" placeholder="Tast inn Date" ng-change="dateSelected()">								
 					</div>
 				</div>
 				<div class="col l12 m12 s12" id="geolocation" style="display:none;">
@@ -349,7 +380,7 @@
 						<p>Region</p>
 					</div>
 					<div class="col s12 m7 l9">
-						<input list="region" name="region" ng-model="campaign.region" placeholder="Plukke ut Region">
+						<input list="region" name="region" ng-model="campaign.region" placeholder="Plukke ut Region" ng-change="regionSelected()">
 						<datalist id="region">
 							<option ng-repeat="region in regionList">{{region}}</option>
 						</datalist>		    
