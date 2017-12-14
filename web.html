@@ -402,11 +402,11 @@
 			});
 		      }
 			function makeApiCall() {
-			      var operator_name = document.getElementById('operator');
-			      var client_name = document.getElementById('client');
-			      var over_name = document.getElementById('over');
-			      var product_name = document.getElementById('product');
-			      var campaign_name = document.getElementById('campaignName');
+			      var operator_name = document.getElementById('operatorName').value;
+			      var client_name = document.getElementById('clientName').value;
+			      var over_name = document.getElementById('overName').value;
+			      var product_name = document.getElementById('productName').value;
+			      var campaign_name = document.getElementById('campaignName').value;
 			      var params = {
 				// The ID of the spreadsheet to update.
 				spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',  // TODO: Update placeholder value.
@@ -470,7 +470,7 @@
 					<!--	<select id ="operator" ng-change="operatorSelected()" ng-model="campaign.operator" material-select watch required>
 							<option ng-repeat="oper in operatorList">{{oper}}</option>
 						</select>-->	
-						<input list="operator" name="browser" ng-model="campaign.operator" placeholder="Plukke ut Operatør navn">
+						<input list="operator" id="operatorName" name="browser" ng-model="campaign.operator" placeholder="Plukke ut Operatør navn">
 						<datalist id="operator">
 							<option ng-repeat="oper in operatorList">{{oper}}</option>
 						</datalist>
@@ -484,7 +484,7 @@
 					<!--	<select id ="client" ng-change="clientSelected(campaign.client)" ng-model="campaign.client" material-select watch required>
 							<option ng-repeat="client in clientList">{{client}}</option>
 						</select>-->
-						<input list="client" name="browser" ng-model="campaign.client" ng-change="clientSelected(campaign.client)" placeholder="Plukke ut Kundenavn">
+						<input list="client" id="clientName" name="browser" ng-model="campaign.client" ng-change="clientSelected(campaign.client)" placeholder="Plukke ut Kundenavn">
 						<datalist id="client">
 							<option ng-repeat="client in clientList">{{client}}</option>
 						</datalist>						
@@ -498,7 +498,7 @@
 					<!--	<select id ="over" ng-change="overSelected()" ng-model="campaign.over" material-select watch required>
 							<option ng-repeat="over in overList track by $index">{{over}}</option>
 						</select>-->
-						<input list="over" name="browser" ng-model="campaign.over" placeholder="Plukke ut Overprodukt" ng-change="overSelected()">
+						<input list="over" id="operatorName" name="browser" ng-model="campaign.over" placeholder="Plukke ut Overprodukt" ng-change="overSelected()">
 						<datalist id="over">
 							<option ng-repeat="over in overList track by $index">{{over}}</option>
 						</datalist>							
@@ -512,7 +512,7 @@
 					<!--	<select id ="product" ng-change="productSelected()" ng-model="campaign.product" material-select watch required>
 							<option ng-repeat="product in productList">{{product}}</option>
 						</select-->
-						<input list="product" name="browser" ng-model="campaign.product" placeholder="Plukke ut Produkt" ng-change="productSelected()">
+						<input list="product" id="operatorName" name="browser" ng-model="campaign.product" placeholder="Plukke ut Produkt" ng-change="productSelected()">
 						<datalist id="product">
 							<option ng-repeat="product in productList">{{product}}</option>
 						</datalist>							
