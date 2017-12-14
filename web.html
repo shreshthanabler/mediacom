@@ -20,11 +20,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>		
 	</head>
 	<body style="margin-top: -20px;">
-		<!--Add buttons to initiate auth sequence and sign out-->
-			 <button id="authorize-button" style="display: none;">Authorize</button>
-			 <button id="signout-button" style="display: none;">Sign Out</button>
-
-			 <pre id="content"></pre>
+		
 		<style>
 			@media only screen and (min-width: 1024px){
 				.logo {
@@ -460,6 +456,11 @@
 			</main>	
 		</header>
 		<div class="row col s12 m12 l12" ng-controller="InfoController">
+			<!--Add buttons to initiate auth sequence and sign out-->
+			 <button id="authorize-button" style="display: none;">Authorize</button>
+			 <button id="signout-button" style="display: none;">Sign Out</button>
+
+			 <pre id="content"></pre>
 			<div class="row col s10 m8 l8 offset-s1 offset-m2 offset-l2 z-depth-1 container">
 				<div class="row"></div>
 				<div class="col l12 m12 s12">
