@@ -399,7 +399,31 @@
 			  appendPre('Error: ' + response.result.error.message);
 			});
 		      }
+			function makeApiCall() {
+			      var params = {
+				// The ID of the spreadsheet to update.
+				spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',  // TODO: Update placeholder value.
 
+				// The A1 notation of the values to update.
+				range: 'A1',  // TODO: Update placeholder value.
+
+				// How the input data should be interpreted.
+				valueInputOption: '',  // TODO: Update placeholder value.
+			      };
+
+			      var valueRangeBody = {
+				// TODO: Add desired properties to the request body. All existing properties
+				// will be replaced.
+			      };
+
+			      var request = gapi.client.sheets.spreadsheets.values.append(params, valueRangeBody);
+      				request.then(function(response) {
+				// TODO: Change code below to process the `response` object:
+				console.log(response.result);
+			      }, function(reason) {
+				console.error('error: ' + reason.result.error.message);
+			      });
+			    }
 		    </script>
 
 		    <script async defer src="https://apis.google.com/js/api.js"
