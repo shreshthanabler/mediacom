@@ -406,7 +406,7 @@
 				spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',  // TODO: Update placeholder value.
 
 				// The A1 notation of the values to update.
-				range: 'A1:D1',  // TODO: Update placeholder value.
+				range: 'A1:D5',  // TODO: Update placeholder value.
 
 				// How the input data should be interpreted.
 				valueInputOption: 'USER_ENTERED',  // TODO: Update placeholder value.
@@ -418,7 +418,13 @@
 			      };
 				var resource = {
 				  "majorDimension": "ROWS",
-				  "values": [new Date(),"Wheel","Door","Engine"]
+				  "values": [
+					    ["Item", "Cost", "Stocked", "Ship Date"],
+					    ["Wheel", "$20.50", "4", "3/1/2016"],
+					    ["Door", "$15", "2", "3/15/2016"],
+					    ["Engine", "$100", "1", "30/20/2016"],
+					    ["Totals", "=SUM(B2:B4)", "=SUM(C2:C4)", "=MAX(D2:D4)"]
+					  ],
 				}
 
 			      var request = gapi.client.sheets.spreadsheets.values.append(params, resource);
