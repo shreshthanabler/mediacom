@@ -498,7 +498,7 @@
 					<!--	<select id ="over" ng-change="overSelected()" ng-model="campaign.over" material-select watch required>
 							<option ng-repeat="over in overList track by $index">{{over}}</option>
 						</select>-->
-						<input list="over" id="operatorName" name="browser" ng-model="campaign.over" placeholder="Plukke ut Overprodukt" ng-change="overSelected()">
+						<input list="over" id="overName" name="browser" ng-model="campaign.over" placeholder="Plukke ut Overprodukt" ng-change="overSelected()">
 						<datalist id="over">
 							<option ng-repeat="over in overList track by $index">{{over}}</option>
 						</datalist>							
@@ -512,7 +512,7 @@
 					<!--	<select id ="product" ng-change="productSelected()" ng-model="campaign.product" material-select watch required>
 							<option ng-repeat="product in productList">{{product}}</option>
 						</select-->
-						<input list="product" id="operatorName" name="browser" ng-model="campaign.product" placeholder="Plukke ut Produkt" ng-change="productSelected()">
+						<input list="product" id="productName" name="browser" ng-model="campaign.product" placeholder="Plukke ut Produkt" ng-change="productSelected()">
 						<datalist id="product">
 							<option ng-repeat="product in productList">{{product}}</option>
 						</datalist>							
