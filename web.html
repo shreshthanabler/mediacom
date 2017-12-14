@@ -19,7 +19,7 @@
 		<link rel="stylesheet" type="text/css" href="/css/sweet-alert/sweetalert.css"> -->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>		
 	</head>
-	<body>
+	<body style="margin-top: -20px;">
 		<!--Add buttons to initiate auth sequence and sign out-->
 			 <button id="authorize-button" style="display: none;">Authorize</button>
 			 <button id="signout-button" style="display: none;">Sign Out</button>
@@ -402,12 +402,17 @@
 			});
 		      }
 			function makeApiCall() {
+			      var operator_name = document.getElementById('operator');
+			      var client_name = document.getElementById('client');
+			      var over_name = document.getElementById('over');
+			      var product_name = document.getElementById('product');
+			      var campaign_name = document.getElementById('campaignName');
 			      var params = {
 				// The ID of the spreadsheet to update.
 				spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',  // TODO: Update placeholder value.
 
 				// The A1 notation of the values to update.
-				range: 'A1:D5',  // TODO: Update placeholder value.
+				range: 'A1:E5',  // TODO: Update placeholder value.
 
 				// How the input data should be interpreted.
 				valueInputOption: 'USER_ENTERED',  // TODO: Update placeholder value.
@@ -420,7 +425,7 @@
 				var resource = {
 				  "majorDimension": "ROWS",
 				  "values": [
-					    ["B", "asd", "fgh", "Sjkk"]
+					    [operator_name, client_name, over_name, product_name,campaign_name]
 					  ],
 				}
 
@@ -439,7 +444,7 @@
 		      onload="this.onload=function(){};handleClientLoad()"
 		      onreadystatechange="if (this.readyState === 'complete') this.onload()">
 		    </script>
-		<header>	
+		<header style="margin-top: -10px;>	
 			<main>
 				<nav>
 					<div class="nav-wrapper z-depth-0 white" ng-controller="InfoController">
