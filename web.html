@@ -77,7 +77,7 @@
 		</style>
 		<script>
 			var app = angular.module('web-app', []);
-			app.controller('InfoController', function($scope,$window) {
+			app.controller('InfoController', function($scope,$window,$location) {
 				
 				//clientID:622320244089-k2r7rkiaadpm5sufp415jcofa8m2ss20.apps.googleusercontent.com
 				//client secret:rosjtfDR5X5ZQV72PUajO6d3
@@ -284,6 +284,9 @@
 					Materialize.toast($toastContent, 5000, 'rounded');
 				}
 				
+				$scope.scrollTo = function (hash) {
+					$location.hash(hash);
+				    };
 				//save.....
 
 			});
@@ -433,7 +436,7 @@
         					<i class="material-icons right">send</i></button>
 				</div>
 			</div>
-			<a class="waves-effect waves-light btn modal-trigger"href="#modal1">Modal</a>
+			<a class="waves-effect waves-light btn modal-trigger"   ng-click="scrollTo('modal1')>Modal</a>
 			<!-- Modal Structure -->
 			  <div id="modal1" class="modal bottom-sheet">
 			    <div class="modal-content">
