@@ -286,12 +286,18 @@
 				  });
 				
 				$scope.copy = function(){
+				   if($scope.campaignName!=""){
 					var copyText = document.getElementById("campaignName");
 					copyText.select();
 					document.execCommand("Copy");
 					//alert("Copied the text: " + copyText.value);
 					var $toastContent = $('<span>Copied the text</span>');
 					Materialize.toast($toastContent, 5000, 'rounded');
+				   }
+				   else{
+					var $toastContent = $('<span>Please fill all details</span>');
+					Materialize.toast($toastContent, 5000, 'rounded');
+					}
 				}
 				
 				//save.....
@@ -595,7 +601,7 @@
 					    [operator_name, client_name, over_name, product_name,campaign_name]
 					  ],
 				}
-
+			     if(campaign_name!=""){
 			      var request = gapi.client.sheets.spreadsheets.values.append(params, resource);
       				request.then(function(response) {
 				// TODO: Change code below to process the `response` object:
@@ -603,6 +609,11 @@
 			      }, function(reason) {
 				console.error('error: ' + reason.result.error.message);
 			      });
+			     }
+				else{
+				   var $toastContent = $('<span>Please fill all details</span>');
+				   Materialize.toast($toastContent, 5000, 'rounded');
+				}
 			    }
 
 		    </script>
