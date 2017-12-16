@@ -292,11 +292,11 @@
 					copyText.select();
 					document.execCommand("Copy");
 					//alert("Copied the text: " + copyText.value);
-					var $toastContent = $('<span>Copied the text</span>');
+					var $toastContent = $('<span>Kopierte teksten</span>');
 					Materialize.toast($toastContent, 5000, 'rounded');
 				   }
 				   else{
-					var $toastContent = $('<span>Please fill all details</span>');
+					var $toastContent = $('<span>vennligst fyll ut alle detaljer</span>');
 					Materialize.toast($toastContent, 5000, 'rounded');
 					}
 				}
@@ -436,12 +436,12 @@
 						<input id ="campaignName" ng-model="campaignName" placeholder="Endelig produksjon" readonly>	    
 					</div>
 					<div class="col s2 m2 l2 offset-s4" style="padding-top:7px;">
-						<button class="btn waves-effect center waves-light pink" type="submit" name="action" ng-click="copy()" >Copy
+						<button class="btn waves-effect center waves-light pink" type="submit" name="action" ng-click="copy()" >kopiere
         					<i class="material-icons right">send</i></button>
 					</div>
 				</div>
 				<div class="row col s2 m2 l4 offset-s4 offset-l4 offset-m4" style="padding-top:7px;">
-						<button class="btn waves-effect center waves-light pink" type="submit" name="action" onclick="makeApiCall()" >Save Information
+						<button class="btn waves-effect center waves-light pink" type="submit" name="action" onclick="makeApiCall()" >Lagre Informasjon
         					<i class="material-icons right">send</i></button>
 				</div>
 			</div>
@@ -610,7 +610,7 @@
 			      });
 			     }
 				else{
-				   var $toastContent = $('<span>Please fill all details</span>');
+				   var $toastContent = $('<span>vennligst fyll ut alle detaljer</span>');
 				   Materialize.toast($toastContent, 5000, 'rounded');
 				}
 			    }
