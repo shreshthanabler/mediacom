@@ -28,6 +28,10 @@
 					margin-left: 0 !important; 
 					width: 11.25rem !important;
 				}
+				
+				#copy{
+					display:block !important;
+				}
 			}
 			html{
 				font-family:"franklin-gothic-urw",sans-serif !important;
@@ -432,10 +436,10 @@
 					<div class="col s12 m4 l3">
 						<p>Nytt kampanjenavn</p>
 					</div>
-					<div class="col s12 m7 l7">
+					<div class="col s12 m5 l7">
 						<input id ="campaignName" ng-model="campaignName" placeholder="Endelig produksjon" readonly>	    
 					</div>
-					<div class="col s2 m2 l2 offset-s4" style="padding-top:7px;">
+					<div class="col s2 m2 l2 offset-s4" id="copy" style="padding-top:7px;" style="display:none;">
 						<button class="btn waves-effect center waves-light pink" type="submit" name="action" ng-click="copy()" >kopiere
         					<i class="material-icons right">send</i></button>
 					</div>
