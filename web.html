@@ -284,11 +284,8 @@
 					Materialize.toast($toastContent, 5000, 'rounded');
 				}
 				
-				$scope.scrollTo = function (hash) {
-					$location.hash(hash);
-				    };
 				//save.....
-				$scope.modalReplace=true;
+				
 			});
 			
 		</script>
@@ -433,9 +430,7 @@
         					<i class="material-icons right">send</i></button>
 				</div>
 			</div>
-			<a class="waves-effect waves-light btn modal-trigger">Modal</a>
 			
-			<div modal data-target="modal1" ready="onReady" complete="onReplaceModalComplete()" open="modalReplace"></div>
 			<!-- Modal Structure -->
 			  <div id="modal1" class="modal">
 			    <div class="modal-content">
@@ -501,7 +496,8 @@
 			  //listMajors();
 			  //makeApiCall();
 			} else {
-			  authorizeButton.style.display = 'block';      
+			  authorizeButton.style.display = 'block';  
+			  document.getElementById("modal1").style.display='block'
 			 // signoutButton.style.display = 'none';
 			}
 		      }
