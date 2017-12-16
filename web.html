@@ -288,12 +288,9 @@
 					$location.hash(hash);
 				    };
 				//save.....
-
+				$scope.modalReplace=true;
 			});
 			
-			app.config(function ($locationProvider) {
-			    $locationProvider.hashPrefix('!');
-			});
 		</script>
 		<header>	
 			<main>
@@ -436,7 +433,9 @@
         					<i class="material-icons right">send</i></button>
 				</div>
 			</div>
-			<a class="waves-effect waves-light btn modal-trigger"   ng-click="scrollTo('modal1')">Modal</a>
+			<a class="waves-effect waves-light btn modal-trigger">Modal</a>
+			
+			<div modal data-target="modal1" ready="onReady" complete="onReplaceModalComplete()" open="modalReplace"></div>
 			<!-- Modal Structure -->
 			  <div id="modal1" class="modal bottom-sheet">
 			    <div class="modal-content">
@@ -502,15 +501,7 @@
 			  //listMajors();
 			  //makeApiCall();
 			} else {
-			  authorizeButton.style.display = 'block';
-			 //initialize all modals           
-			$('#modal1').modal();
-
-			//now you can open modal from code
-			$('#modal1').modal('open');
-
-			//or by click on trigger
-			$('.trigger-modal').modal();
+			  authorizeButton.style.display = 'block';      
 			 // signoutButton.style.display = 'none';
 			}
 		      }
