@@ -442,13 +442,13 @@
 			</div>
 			
 			<!-- Modal Structure -->
-			  <div id="modal1" class="modal" style="z-index: 100;top:30%;">
+			  <div id="modal1" class="modal" style="z-index: 100;top:30%;overflow:hidden;">
 			    <div class="modal-content">
-			      <h5 align="center">Please Authorize yourself by signing in to Google account</h5>
+			      <h5 align="center">Godkjen deg selv ved å logge på Google-konto</h5>
 			    </div>
 			    <div class="modal-footer center">
 				<div class="row">
-			      		<button class="btn waves-effect center waves-light pink" id="authorize-button1" style="display: block; margin-left:  auto;  margin-right: auto; float:none;">Authorize</button>
+			      		<button class="btn waves-effect center waves-light pink" id="authorize-button1" style="display: block; margin-left:  auto;  margin-right: auto; float:none;">Autorisere</button>
 				</div>
 			    </div>
 			  </div>
@@ -504,6 +504,8 @@
 		      function updateSigninStatus(isSignedIn) {
 			if (isSignedIn) {
 			  authorizeButton.style.display = 'none';
+			  document.getElementById("modal1").style.display='none'
+			  document.getElementById("cover").style.display='none'
 			 // signoutButton.style.display = 'block';
 			  //listMajors();
 			  //makeApiCall();
