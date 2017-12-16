@@ -73,6 +73,16 @@
 				margin-top:-10px !important;
 				margin-bottom: -10px !important;
 			}
+			#cover{
+			    position:fixed;
+			    top:0;
+			    left:0;
+			    background:rgba(0,0,0,0.6);
+			    z-index:5;
+			    width:100%;
+			    height:100%;
+			    display:none;
+			}
 			
 		</style>
 		<script>
@@ -441,6 +451,7 @@
 			      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
 			    </div>
 			  </div>
+			<div id="cover">
   		</div>
 		<script>
 			// Client ID and API key from the Developer Console
@@ -498,6 +509,7 @@
 			} else {
 			  authorizeButton.style.display = 'block';  
 			  document.getElementById("modal1").style.display='block'
+			  document.getElementById("cover").style.display='block'
 			 // signoutButton.style.display = 'none';
 			}
 		      }
