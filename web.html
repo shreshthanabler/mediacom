@@ -614,6 +614,8 @@
 			      var request = gapi.client.sheets.spreadsheets.values.append(params, resource);
       				request.then(function(response) {
 				// TODO: Change code below to process the `response` object:
+				   var $toastContent = $('<span>informasjon lagret</span>');
+				   Materialize.toast($toastContent, 5000, 'rounded');
 				  document.location.reload(true)
 				console.log(response.result);
 			      }, function(reason) {
