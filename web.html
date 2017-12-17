@@ -413,7 +413,7 @@
 						<p>Region</p>
 					</div>
 					<div class="col s12 m7 l9">
-						<input list="region" name="region" ng-model="campaign.region" placeholder="Plukke ut Region" ng-change="regionSelected()">
+						<input list="region" id="regionName" name="region" ng-model="campaign.region" placeholder="Plukke ut Region" ng-change="regionSelected()">
 						<datalist id="region">
 							<option ng-repeat="region in regionList">{{region}}</option>
 						</datalist>		    
@@ -588,7 +588,16 @@
 			      var client_name = document.getElementById('clientName').value;
 			      var over_name = document.getElementById('overName').value;
 			      var product_name = document.getElementById('productName').value;
+			      var date = document.getElementById('date').value;
+			      var region = document.getElementById('regionName').value;
 			      var campaign_name = document.getElementById('campaignName').value;
+			      
+			      if(date==""){
+				 date="NA";
+			       }
+			       if(region==""){
+				 region="NA";
+			       }
 			      var params = {
 				// The ID of the spreadsheet to update.
 				spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',  // TODO: Update placeholder value.
@@ -607,7 +616,7 @@
 				var resource = {
 				  "majorDimension": "ROWS",
 				  "values": [
-					    [operator_name, client_name, over_name, product_name,campaign_name]
+					    [operator_name, client_name, over_name, product_name,date,region,campaign_name]
 					  ],
 				}
 			     if(campaign_name!=""){
