@@ -587,7 +587,7 @@
 			  document.getElementById("modal1").style.display='none'
 			  document.getElementById("cover").style.display='none'
 			 // signoutButton.style.display = 'block';
-			  //listMajors();
+			  listMajors();
 			  //makeApiCall();
 			} else {
 			  authorizeButton.style.display = 'block';  
@@ -634,7 +634,7 @@
 			  range: 'A2:A4',
 			}).then(function(response) {
 			  var range = response.result;
-			  if (range.values.length > 0) {
+			/*  if (range.values.length > 0) {
 			    appendPre('Name, Major:');
 			    for (i = 0; i < range.values.length; i++) {
 			      var row = range.values[i];
@@ -643,7 +643,7 @@
 			    }
 			  } else {
 			    appendPre('No data found.');
-			  }
+			  }*/
 			}, function(response) {
 			  appendPre('Error: ' + response.result.error.message);
 			});
