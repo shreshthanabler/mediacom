@@ -62,6 +62,10 @@
 				margin:0px 0px 10px 10px;
 			}
 			
+			.validated{
+				display:none;
+			}
+			
 			.leftpad{
 				margin-left:20px;
 			}
@@ -250,7 +254,17 @@
 				$scope.channelList=['Digital - Display','Digital - Paid Social','TV - National','Outdoor - Ooh','Cinema - Ads/commercial','Digital - Video/web TV','Print - Local newspapers','Print - Newspapers','Radio - Local','Radio - National','Print - Trade press','Print - Magazines','Digital - SEM','TV - Spons RBS','DM - Direct mail','Digital - Blogs','Mobil - Display','Digital - Social','Mobil - App/inAPP',
 				'TV - Spons Program','Misc.','Outdoor - Digital OoH','Digital - Performance','TV - Local'];
 
-				$scope.regionList=['Sparebank 1 Banksamarbeidet','Sparebank 1 SNN','Sparebank 1 SMN ','Sparebank 1 SR ','Sparebank 1 Østlandet','Sparebank 1 SØA ','Sparebak 1 BV ','Sparebank 1 Ringerike Hadeland','Sparebank 1 Hallingdal Valdres','Sparebank 1 Modum','Sparebank 1 Lom og Skjåk','Sparebank 1 Nordvest','Sparebank 1 Søre Sunnmøre','Sparebank 1 Gudbrandsdalen'];
+				//$scope.regionList=['Sparebank 1 Banksamarbeidet','Sparebank 1 SNN','Sparebank 1 SMN ','Sparebank 1 SR ','Sparebank 1 Østlandet','Sparebank 1 SØA ','Sparebak 1 BV ','Sparebank 1 Ringerike Hadeland','Sparebank 1 Hallingdal Valdres','Sparebank 1 Modum','Sparebank 1 Lom og Skjåk','Sparebank 1 Nordvest','Sparebank 1 Søre Sunnmøre','Sparebank 1 Gudbrandsdalen'];
+				$scope.regionList=['Banksamarbeidet','SNN','SMN ','SR ','Østlandet','SØA ','BV ','Ringerike Hadeland','Hallingdal Valdres','Modum','Lom og Skjåk','Nordvest','Søre Sunnmøre','Gudbrandsdalen'];
+				
+				$scope.validateEmail = function(){
+					if($scope.email.split('@')[1]=='mediacom.no'){
+					   var cols = document.getElementsByClassName('validated');
+						for(i=0; i<cols.length; i++) {
+						    cols[i].style.display = 'block';
+						  }
+					 }
+				}
 				
 				$scope.clientSelected = function(client){
 					console.log(client);
@@ -317,10 +331,10 @@
 				$scope.getCampaignNAme = function(){
 					console.log($scope.name);
 					if($scope.campaign.client.match(/\bTINE/gi)){
-						$scope.campaignName=$scope.date.split(',')[1] + '_' + $scope.date.split(' ')[1].substring(0, 3) + '_' + $scope.campaign.over + '_' + $scope.campaign.product + '_' + $scope.name;
+						$scope.campaignName=$scope.date.split(',')[1] + '_' + $scope.date.split(' ')[1].substring(0, 3) + '_' + $scope.campaign.over.split(' ')[1] + '_' + $scope.campaign.product + '_' + $scope.name;
 					}
 					else if($scope.campaign.client.match(/\bSpareBank 1/gi)){
-						$scope.campaignName=$scope.campaign.region + '_' + $scope.campaign.over + '_' + $scope.campaign.product + '_' + $scope.name;
+						$scope.campaignName='SB1_'+$scope.campaign.region + '_' + $scope.campaign.over + '_' + $scope.campaign.product + '_' + $scope.name;
 					}
 					else
 						$scope.campaignName=$scope.campaign.client + '_' + $scope.campaign.over + '_' + $scope.campaign.product + '_' + $scope.name;
@@ -390,8 +404,16 @@
 							<option ng-repeat="oper in operatorList">{{oper}}</option>
 						</datalist>
 					</div>
-				</div>		
+				</div>	
 				<div class="col l12 m12 s12">
+					<div class="col s12 m4 l3">
+						<p>Epost id</p>
+					</div>
+					<div class="col s12 m7 l9">
+					<input id ="email" ng-model="email" type="email" placeholder="Skriv inn e-post-ID" ng-change="validateEmail();" required>			    
+					</div>
+				</div>	
+				<div class="col l12 m12 s12 validated">
 					<div class="col s12 m4 l3">
 						<p>Kundenavn</p>
 					</div>
@@ -405,7 +427,7 @@
 						</datalist>						
 					</div>
 				</div>	
-				<div class="col l12 m12 s12">
+				<div class="col l12 m12 s12 validated">
 					<div class="col s12 m4 l3">
 						<p>Overprodukt</p>
 					</div>
@@ -419,7 +441,7 @@
 						</datalist>							
 					</div>
 				</div>	
-				<div class="col l12 m12 s12">
+				<div class="col l12 m12 s12 validated">
 					<div class="col s12 m4 l3">
 						<p>Produkt</p>
 					</div>
@@ -443,7 +465,7 @@
 						</select>		    
 					</div>
 				</div>	-->
-				<div class="col l12 m12 s12" id="datepicker" style="display:none;">
+				<div class="col l12 m12 s12 validated" id="datepicker" style="display:none;">
 					<div class="col s12 m4 l3">
 						<p>Date</p>
 					</div>
@@ -451,7 +473,7 @@
 						<input type="text" id="date" class="datepicker" ng-model="date" placeholder="Tast inn Date" ng-change="dateSelected()">								
 					</div>
 				</div>
-				<div class="col l12 m12 s12" id="geolocation" style="display:none;">
+				<div class="col l12 m12 s12 validated" id="geolocation" style="display:none;">
 					<div class="col s12 m4 l3">
 						<p>Region</p>
 					</div>
@@ -462,7 +484,7 @@
 						</datalist>		    
 					</div>
 				</div>				
-				<div class="col l12 m12 s12">
+				<div class="col l12 m12 s12 validated">
 					<div class="col s12 m4 l3">
 						<p>Kampanjenavn</p>
 					</div>
@@ -470,7 +492,7 @@
 						<input id ="name" ng-model="name" placeholder="Tast inn Kampanje Navn" ng-change="getCampaignNAme();" required>			    
 					</div>
 				</div>	
-				<div class="col l12 m12 s12">
+				<div class="col l12 m12 s12 validated">
 					<div class="col s12 m4 l3">
 						<p>Eventuell tilleggsinformasjon</p>
 					</div>
@@ -478,7 +500,7 @@
 						<input id ="info" ng-model="info" placeholder="Tast inn Eventuell tilleggsinformasjon">			    
 					</div>
 				</div>	
-				<div class="col l12 m12 s12" style="margin-bottom:10px;">
+				<div class="col l12 m12 s12 validated" style="margin-bottom:10px;">
 					<div class="col s12 m4 l3">
 						<p>Nytt kampanjenavn</p>
 					</div>
@@ -493,7 +515,7 @@
 						<a><img src="https://raw.githubusercontent.com/shreshthanabler/images/master/copy.png" ng-click="copy()" style="height: 40px;margin-top: -5px;"></a>
 					</div>
 				</div>
-				<div class="row col s4 m2 l4 offset-s2 offset-l4 offset-m4" style="padding-top:7px;">
+				<div class="row col s4 m2 l4 offset-s2 offset-l4 offset-m4 validated" style="padding-top:7px;">
 						<button class="btn waves-effect center waves-light pink" type="submit" name="action" onclick="makeApiCall()" >Lagre Informasjon
         					<i class="material-icons right">send</i></button>
 				</div>
