@@ -252,6 +252,15 @@
 				//$scope.regionList=['Sparebank 1 Banksamarbeidet','Sparebank 1 SNN','Sparebank 1 SMN ','Sparebank 1 SR ','Sparebank 1 Østlandet','Sparebank 1 SØA ','Sparebak 1 BV ','Sparebank 1 Ringerike Hadeland','Sparebank 1 Hallingdal Valdres','Sparebank 1 Modum','Sparebank 1 Lom og Skjåk','Sparebank 1 Nordvest','Sparebank 1 Søre Sunnmøre','Sparebank 1 Gudbrandsdalen'];
 				$scope.regionList=['Banksamarbeidet','SNN','SMN ','SR ','Østlandet','SØA ','BV ','Ringerike Hadeland','Hallingdal Valdres','Modum','Lom og Skjåk','Nordvest','Søre Sunnmøre','Gudbrandsdalen'];
 				
+				$scope.validateEmail = function(){
+					if($scope.email.split('@')[1]=='mediacom.no'){
+					   var cols = document.getElementsByClassName('validated');
+						for(i=0; i<cols.length; i++) {
+						    cols[i].style.display = 'block';
+						  }
+					 }
+				}
+				
 				$scope.clientSelected = function(client){
 					console.log(client);
 					if(client.match(/\bTINE/gi)){
