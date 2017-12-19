@@ -399,7 +399,7 @@
 					<!--	<select id ="operator" ng-change="operatorSelected()" ng-model="campaign.operator" material-select watch required>
 							<option ng-repeat="oper in operatorList">{{oper}}</option>
 						</select>-->	
-						<input list="operator" id="operatorName" name="browser" ng-model="campaign.operator" placeholder="Din epost adresse">
+						<input list="operator" type="email" id="operatorName" name="browser" ng-model="campaign.operator" ng-change="validateEmail();" placeholder="Din epost adresse">
 						<datalist id="operator">
 							<option ng-repeat="oper in operatorList">{{oper}}</option>
 						</datalist>
@@ -410,7 +410,7 @@
 						<p>Epost id</p>
 					</div>
 					<div class="col s12 m7 l9">
-					<input id ="email" ng-model="email" type="email" placeholder="Skriv inn e-post-ID" ng-change="validateEmail();" required>			    
+					<input id ="email" ng-model="email" type="email" placeholder="Din epost adresse" ng-change="validateEmail();" required>			    
 					</div>
 				</div>	
 				<div class="col l12 m12 s12 validated">
