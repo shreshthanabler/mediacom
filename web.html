@@ -658,7 +658,7 @@
 			      var campaign_name = document.getElementById('campaignName').value;
 			      
 				//Copy..
-			      if(campaign_name!=""){
+			      if(operator_name!="" && campaign_name!=""){
 				var copyText = document.getElementById("campaignName");
 				copyText.select();
 				document.execCommand("Copy");
@@ -698,7 +698,7 @@
 					    [operator_name, client_name, over_name, product_name,date,region,campaign_name]
 					  ],
 				}
-			     if(campaign_name!=""){
+			     if(operator_name!="" && campaign_name!=""){
 			      var request = gapi.client.sheets.spreadsheets.values.append(params, resource);
       				request.then(function(response) {
 				// TODO: Change code below to process the `response` object:
