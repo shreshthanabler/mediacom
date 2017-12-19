@@ -329,7 +329,15 @@
 				$scope.getCampaignNAme = function(){
 					console.log($scope.name);
 					if($scope.campaign.client.match(/\bTINE/gi)){
-						$scope.campaignName=$scope.date.split(',')[1] + '_' + $scope.date.split(' ')[1].substring(0, 3) + '_' + $scope.campaign.over.split(' ')[1] + '_' + $scope.campaign.product + '_' + $scope.name;
+						var ov=$scope.campaign.over;
+						var pr=$scope.campaign.product;
+						if($scope.campaign.over.match(/\bTINE/gi)){
+							ov=$scope.campaign.over.split(' ')[1];
+						}
+						if($scope.campaign.product.match(/\bTINE/gi)){
+							pr=$scope.campaign.product.split(' ')[1];
+						}
+						$scope.campaignName=$scope.date.split(',')[1] + '_' + $scope.date.split(' ')[1].substring(0, 3) + '_' + ov + '_' + pr + '_' + $scope.name;
 					}
 					else if($scope.campaign.client.match(/\bSpareBank 1/gi)){
 						$scope.campaignName='SB1_'+$scope.campaign.region + '_' + $scope.campaign.over + '_' + $scope.campaign.product + '_' + $scope.name;
