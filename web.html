@@ -151,7 +151,7 @@
 				$scope.campaignName="";
 				//$scope.campaign.client="<Plukke ut Kund navn>";
 				//$scope.campaign.operator="<Plukke ut Operatør navn>";
-				$scope.operatorList=['<Plukke ut Operatør navn>'];
+				//$scope.operatorList=['<Plukke ut Operatør navn>'];
 				$scope.clientList=['Akzo Nobel Coatings AB','Arbeiderpartiet','Bausch & Lomb  - MC SE','Bluesun via MCSE','BN Bank ASA','Borregaard AS','Bose GP  Norge','Byggma ASA',
 								'BYGGMAKKER HANDEL AS','Stangeskovene Kværner AS','Croatian National Tourist Board','De\'Longhi Group','Destinasjon Trysil','E-boks Norway via  - Mediabroker AS',
 								'Fagforbundet','Flytoget AS','Fornebu Grunneierforening','Etteretningstjenesten OSLO','Forsvaret','FORSVARSMATERIELL','FotoKnudsen AS','Fox - SFNorge','Goodyear Dunlop Tires Norway AS',
@@ -349,7 +349,7 @@
 					closeOnSelect: true // Close upon selecting a date,
 				  });
 				
-				$scope.copy = function(){
+			/*	$scope.copy = function(){
 				   if($scope.campaignName!=""){
 					var copyText = document.getElementById("campaignName");
 					copyText.select();
@@ -362,7 +362,7 @@
 					var $toastContent = $('<span>vennligst fyll ut alle detaljer</span>');
 					Materialize.toast($toastContent, 5000, 'rounded');
 					}
-				}
+				}*/
 				
 				//save.....
 				
@@ -389,7 +389,7 @@
 			 <button id="authorize-button" style="display: none;">Authorize</button>
 			 <button id="signout-button" style="display: none;">Sign Out</button>-->
 			<div class="row col s10 m8 l8 offset-s1 offset-m2 offset-l2 z-depth-1 container">
-				<h4 align="center">Navngi generatoren</h4>
+				<h4 align="center">Navngivningsgenerator</h4>
 				<div class="row"></div>
 				<div class="col l12 m12 s12">
 					<div class="col s12 m4 l3">
@@ -399,7 +399,7 @@
 					<!--	<select id ="operator" ng-change="operatorSelected()" ng-model="campaign.operator" material-select watch required>
 							<option ng-repeat="oper in operatorList">{{oper}}</option>
 						</select>-->	
-						<input list="operator" id="operatorName" name="browser" ng-model="campaign.operator" placeholder="Plukke ut Operatør navn">
+						<input list="operator" id="operatorName" name="browser" ng-model="campaign.operator" placeholder="Din epost adresse">
 						<datalist id="operator">
 							<option ng-repeat="oper in operatorList">{{oper}}</option>
 						</datalist>
@@ -504,19 +504,19 @@
 					<div class="col s12 m4 l3">
 						<p>Nytt kampanjenavn</p>
 					</div>
-					<div class="col s12 m6 l7">
+					<div class="col s12 m6 l9">
 						<input id ="campaignName" ng-model="campaignName" placeholder="Endelig produksjon" readonly>	    
 					</div>
 					<div class="col s2 m2 l2 offset-s4" id="copy" style="padding-top:7px;display:none;">
 						<button class="btn waves-effect center waves-light pink" type="submit" name="action" ng-click="copy()" >kopiere
         					<i class="material-icons right">send</i></button>
 					</div>
-					<div class="col s2 m2 l2 offset-s4" id="copy_mobile" style="padding-top:7px;">
+				<!--	<div class="col s2 m2 l2 offset-s4" id="copy_mobile" style="padding-top:7px;">
 						<a><img src="https://raw.githubusercontent.com/shreshthanabler/images/master/copy.png" ng-click="copy()" style="height: 40px;margin-top: -5px;"></a>
-					</div>
+					</div>-->
 				</div>
 				<div class="row col s4 m2 l4 offset-s2 offset-l4 offset-m4 validated" style="padding-top:7px;">
-						<button class="btn waves-effect center waves-light pink" type="submit" name="action" onclick="makeApiCall()" >Lagre Informasjon
+						<button class="btn waves-effect center waves-light pink" type="submit" name="action" onclick="makeApiCall()" >kopiere & Lagre Informasjon
         					<i class="material-icons right">send</i></button>
 				</div>
 			</div>
@@ -657,6 +657,20 @@
 			      var region = document.getElementById('regionName').value;
 			      var campaign_name = document.getElementById('campaignName').value;
 			      
+				//Copy..
+			      if(campaign_name!=""){
+				var copyText = document.getElementById("campaignName");
+				copyText.select();
+				document.execCommand("Copy");
+				//alert("Copied the text: " + copyText.value);
+				var $toastContent = $('<span>Kopierte teksten</span>');
+				Materialize.toast($toastContent, 5000, 'rounded');
+			       }
+			       else{
+				var $toastContent = $('<span>vennligst fyll ut alle detaljer</span>');
+				Materialize.toast($toastContent, 5000, 'rounded');
+			       }
+				
 			      if(date==""){
 				 date="NA";
 			       }
