@@ -392,8 +392,8 @@
 		</header>
 		<div class="row col s12 m12 l12" ng-controller="InfoController">
 			<!--Add buttons to initiate auth sequence and sign out
-			 <button id="authorize-button" style="display: none;">Authorize</button>
-			 <button id="signout-button" style="display: none;">Sign Out</button>-->
+			 <button id="authorize-button" style="display: none;">Authorize</button>-->
+			 <button id="signout-button" style="display: none;">Sign Out</button>
 			<div class="row col s10 m8 l8 offset-s1 offset-m2 offset-l2 z-depth-1 container">
 				<h4 align="center">Navngivningsgenerator</h4>
 				<div class="row"></div>
@@ -535,7 +535,7 @@
 			    <div class="modal-footer center">
 				<div class="row">
 			      		<button class="btn waves-effect center waves-light pink" id="authorize-button1" style="display: block; margin-left:  auto;  margin-right: auto; float:none;">Autorisere</button>
-					<button class="btn waves-effect center waves-light pink" id="signout-button" style="display: none; margin-left:  auto;  margin-right: auto; float:none;">Signout</button>
+				<!--	<button class="btn waves-effect center waves-light pink" id="signout-button" style="display: none; margin-left:  auto;  margin-right: auto; float:none;">Signout</button>-->
 				</div>
 			    </div>
 			  </div>
@@ -589,9 +589,13 @@
 		       *  Called when the signed in status changes, to update the UI
 		       *  appropriately. After a sign-in, the API is called.
 		       */
+			var a=0;
 		      function updateSigninStatus(isSignedIn) {
 			if (isSignedIn) {
+				if(a==0){
 				document.getElementById("signout-button").click();
+			}
+				a++;
 			/*  authorizeButton.style.display = 'none';
 			  document.getElementById("modal1").style.display='none'
 			  document.getElementById("cover").style.display='none'*/
