@@ -535,6 +535,7 @@
 			    <div class="modal-footer center">
 				<div class="row">
 			      		<button class="btn waves-effect center waves-light pink" id="authorize-button1" style="display: block; margin-left:  auto;  margin-right: auto; float:none;">Autorisere</button>
+					<button class="btn waves-effect center waves-light pink" id="signout-button" style="display: none; margin-left:  auto;  margin-right: auto; float:none;">Signout</button>
 				</div>
 			    </div>
 			  </div>
@@ -553,7 +554,7 @@
 		      var SCOPES = "https://www.googleapis.com/auth/spreadsheets";
 
 		      var authorizeButton = document.getElementById('authorize-button1');
-		     // var signoutButton = document.getElementById('signout-button');
+		      var signoutButton = document.getElementById('signout-button');
 
 		      /**
 		       *  On load, called to load the auth2 library and API client library.
@@ -579,8 +580,8 @@
 			  // Handle the initial sign-in state.
 			  updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
 				          //remove after checking
-			  authorizeButton.onclick = handleSignoutClick,handleAuthClick;
-			//  signoutButton.onclick = handleSignoutClick;
+			  authorizeButton.onclick = handleAuthClick;
+			  signoutButton.onclick = handleSignoutClick;
 			});
 		      }
 
@@ -589,10 +590,11 @@
 		       *  appropriately. After a sign-in, the API is called.
 		       */
 		      function updateSigninStatus(isSignedIn) {
-			/*if (isSignedIn) {
-			  authorizeButton.style.display = 'none';
+			if (isSignedIn) {
+				document.getElementById("signout-button").click();
+			/*  authorizeButton.style.display = 'none';
 			  document.getElementById("modal1").style.display='none'
-			  document.getElementById("cover").style.display='none'
+			  document.getElementById("cover").style.display='none'*/
 			 // signoutButton.style.display = 'block';
 			  listMajors();
 			  //makeApiCall();
@@ -601,10 +603,7 @@
 			  document.getElementById("modal1").style.display='block'
 			  document.getElementById("cover").style.display='block'
 			 // signoutButton.style.display = 'none';
-			}*/
-			      authorizeButton.style.display = 'block';  
-			  document.getElementById("modal1").style.display='block'
-			  document.getElementById("cover").style.display='block'
+			}
 		      }
 
 		      /**
