@@ -578,8 +578,8 @@
 
 			  // Handle the initial sign-in state.
 			  updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-				handleSignoutClick();           //remove after checking
-			  authorizeButton.onclick = handleAuthClick;
+				          //remove after checking
+			  authorizeButton.onclick = handleSignoutClick,handleAuthClick;
 			//  signoutButton.onclick = handleSignoutClick;
 			});
 		      }
