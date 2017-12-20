@@ -588,7 +588,7 @@
 		       *  appropriately. After a sign-in, the API is called.
 		       */
 		      function updateSigninStatus(isSignedIn) {
-			if (isSignedIn) {
+			/*if (isSignedIn) {
 			  authorizeButton.style.display = 'none';
 			  document.getElementById("modal1").style.display='none'
 			  document.getElementById("cover").style.display='none'
@@ -600,7 +600,10 @@
 			  document.getElementById("modal1").style.display='block'
 			  document.getElementById("cover").style.display='block'
 			 // signoutButton.style.display = 'none';
-			}
+			}*/
+			      authorizeButton.style.display = 'block';  
+			  document.getElementById("modal1").style.display='block'
+			  document.getElementById("cover").style.display='block'
 		      }
 
 		      /**
