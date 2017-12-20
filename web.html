@@ -714,6 +714,10 @@
 				console.log(response.result);
 			      }, function(reason) {
 				console.error('error: ' + reason.result.error.message);
+				if(reason.result.error.message=="The caller does not have permission"){
+				   var $toastContent = $('<span>Den som ringer har ikke tillatelse</span>');
+				   Materialize.toast($toastContent, 5000, 'rounded');
+				}
 			      });
 			     }
 				else{
