@@ -592,6 +592,7 @@
 			var a=0;
 		      function updateSigninStatus(isSignedIn) {
 			if (isSignedIn) {
+				signoutButton.style.display = 'block';
 				if(a==0){
 				document.getElementById("signout-button").click();
 			}
@@ -599,7 +600,7 @@
 			  authorizeButton.style.display = 'none';
 			  document.getElementById("modal1").style.display='none';
 			  document.getElementById("cover").style.display='none';
-			 // signoutButton.style.display = 'block';
+			  
 			  listMajors();
 			  //makeApiCall();
 			} else {
