@@ -270,16 +270,11 @@
 						console.log("TINE");
 						document.getElementById("datepicker").style.display="block";
 						document.getElementById("geolocation").style.display="none";
-						$scope.overList=['**Ikke I listen – legg til selv**','** Produkt mangler **','TINE Overordnet','Drikke','Frokost og lunsj','Mellommåltid','Turtelkuene','Middag, matlaging, dessert','SØK','Sunniva','Matfløte'];
-						$scope.productList=['**Ikke I listen – legg til selv**','** Produkt mangler **','Felleskampanje','Julekampanje','Kommunikasjon','Profil','SØK','TINE Partner','TINEStafetten','Biola','Barer','Go\'Morgen','Jarlsberg','TINE Litago','Uten','Turtelkuene','Lettere Felleskampanje','Norvegia','Norvegia Laktosefri','TINE Norvegia Lettere','NÅ','Osteriet','Piano','TINE Piano Vaniljekrem','Vaniljesaus','Vaniljesaus Zero','Revet Ost','TINE Rislunsj','TINE Sprett','TINE Sprett Drikkeyoghurt',
-											'IsTe','Juice','Noisy','Sunniva felles','Sunniva Lett','Sunniva mormerke','Sunniva Original','Sunniva Premium','Sunniva Presset','SUPRI','TINE 14','TINE Brunost','TINE Brunost Junior','TINE Hvit Geitost','Dulce','Julelatte','TINE Iskaffe','Zero','TINE Kremgo','Matfløte','Cottage Cheese','Creme Fraiche','Felles','Kesam','Lettrømme','Matsans','Rømme','Smør','TINE Kremfløte','Melk','Styrk','TINE Yoghurt','TINE Yoghurt Fyldig','YT','TINE Østavind'];
 					}
 					else if(client.match(/\bSpareBank 1/gi)){
 						console.log("SpareBank 1");
 						document.getElementById("datepicker").style.display="none";
 						document.getElementById("geolocation").style.display="block";
-						$scope.overList=['**Ikke I listen – legg til selv**','Andel Forsikring','Byttehelg','Nasjonal ASK','Pensjonskonto','Spleis','SØK','** Produkt mangler **','ASK','BFFT','Boliglån','Personforsikring','BM','IPS','Jobbannonser','SPINN','mCASH','Aksjesparekonto','TUT','PETRO Finans','Vipps','Kundeutbytte','Merkevare'];
-						$scope.productList=['**Ikke I listen – legg til selv**','Andel Forsikring','Byttehelg','Nasjonal ASK','Pensjonskonto','Spleis','SØK','** Produkt mangler **','ASK','BFFT','Boliglån','Personforsikring','BM','IPS','Jobbannonser','SPINN','mCASH','Aksjesparekonto','TUT','PETRO Finans','Vipps','Kundeutbytte','Merkevare'];
 					}
 					else{
 						document.getElementById("datepicker").style.display="none";
@@ -427,7 +422,7 @@
 					<!--	<select id ="client" ng-change="clientSelected(campaign.client)" ng-model="campaign.client" material-select watch required>
 							<option ng-repeat="client in clientList">{{client}}</option>
 						</select>-->
-						<input list="client" id="clientName" name="browser" ng-model="campaign.client" onchange="clientSelected(this.value)" placeholder="Kundenavn">
+						<input list="client" id="clientName" name="browser" ng-model="campaign.client" onchange="clientSelected(this.value)" ng-change="clientSelected(campaign.client)" placeholder="Kundenavn">
 						<datalist id="client">
 						<!--	<option ng-repeat="client in clientList">{{client}}</option>-->
 						</datalist>						
@@ -744,28 +739,13 @@
 				console.log(client);
 				if(client.match(/\bTINE/gi)){
 					listClientsTINE();					
-					console.log("TINE");
-					document.getElementById("datepicker").style.display="block";
-					document.getElementById("geolocation").style.display="none";;
 				}
 				else if(client.match(/\bSpareBank 1/gi)){
 					listClientsSB();
-					console.log("SpareBank 1");
-					document.getElementById("datepicker").style.display="none";
-					document.getElementById("geolocation").style.display="block";
 				}
 				else{
 					listProducts();
-					document.getElementById("datepicker").style.display="none";
-					document.getElementById("geolocation").style.display="none";
 				}
-				document.getElementById("overName").value="";
-				document.getElementById("productName").value="";
-				document.getElementById("regionName").value="";
-				document.getElementById("date").value="";
-				document.getElementById("name").value="";
-				document.getElementById("info").value="";
-				document.getElementById("campaignName").value="";
 				
 			}
 			
