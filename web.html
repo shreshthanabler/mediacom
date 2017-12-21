@@ -647,11 +647,11 @@
 			  if (range.values.length > 0) {
 			   var options = '';
 
-			  for(var i = 0; i < range.values.length; i++)
+			  for(var i = 0; i < range.values.length; i++){
 			    options += '<option value="'+range.values[i]+'" />';
-
+			  }
 			  document.getElementById('client').innerHTML = options;
-			    }
+			    
 			  } else {
 			    //appendPre('No data found.');
 			  }
