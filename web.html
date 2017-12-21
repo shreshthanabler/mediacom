@@ -727,11 +727,13 @@
 					console.log("TINE");
 					document.getElementById("datepicker").style.display="block";
 					document.getElementById("geolocation").style.display="none";
+					listClientsTINE();
 				}
 				else if(client.match(/\bSpareBank 1/gi)){
 					console.log("SpareBank 1");
 					document.getElementById("datepicker").style.display="none";
 					document.getElementById("geolocation").style.display="block";
+					listClientsSB();
 				}
 				else{
 					document.getElementById("datepicker").style.display="none";
