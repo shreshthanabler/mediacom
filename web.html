@@ -443,7 +443,7 @@
 						</select>-->
 						<input list="over" id="overName" name="browser" ng-model="campaign.over" placeholder="Overprodukt" ng-change="overSelected()">
 						<datalist id="over">
-							<option ng-repeat="over in overList track by $index">{{over}}</option>
+						<!--	<option ng-repeat="over in overList track by $index">{{over}}</option>-->
 						</datalist>							
 					</div>
 				</div>	
@@ -457,7 +457,7 @@
 						</select-->
 						<input list="product" id="productName" name="browser" ng-model="campaign.product" placeholder="Produkt" ng-change="productSelected()">
 						<datalist id="product">
-							<option ng-repeat="product in productList">{{product}}</option>
+						<!--	<option ng-repeat="product in productList">{{product}}</option>-->
 						</datalist>							
 					</div>
 				</div>	
@@ -646,11 +646,17 @@
 			  var range = response.result;
 			  if (range.values.length > 0) {
 			   var options = '';
+			   var optionsOver = '';
+		           var optionsProd= '';
 
 			  for(var i = 0; i < range.values.length; i++){
-			    options += '<option value="'+range.values[i]+'" />';
+			    options += '<option value="'+range.values[i][0]+'" />';
+		 	    optionsOver += '<option value="'+range.values[i][1]+'" />';
+			    optionsProd += '<option value="'+range.values[i][2]+'" />';
 			  }
 			  document.getElementById('client').innerHTML = options;
+			  document.getElementById('over').innerHTML = optionsOver;
+			  document.getElementById('product').innerHTML = optionsProd;
 			    
 			  } else {
 			    //appendPre('No data found.');
