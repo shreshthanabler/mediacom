@@ -775,10 +775,10 @@
 				 region="NA";
 			       }
 				
-			      if(!(isInArray(clientList, client_name))){
+			      if(isInArray(clientList, client_name)){
 				saveNew(1,client_name);
 			      }
-			      if(!(isInArray(overList, over_name))){
+			      if(isInArray(overList, over_name)){
 				if(client_name.match(/\bTINE/gi)){
 				   saveNew(5,over_name);
 				}
@@ -787,7 +787,7 @@
 				}
 				saveNew(2,over_name);
 			      }
-			      if(!(isInArray(productList, product_name))){
+			      if(isInArray(productList, product_name)){
 				if(client_name.match(/\bTINE/gi)){
 				   saveNew(7,product_name);
 				}
@@ -796,7 +796,7 @@
 				}
 				saveNew(3,product_name);
 			      }
-			      if(!(isInArray(regionList, region))){
+			      if(isInArray(regionList, region)){
 				saveNew(4,region);
 			      }
 			      var params = {
@@ -857,7 +857,7 @@
 			    }
 			
 			function isInArray(list, val) {
-				    return list.indexOf(val) > -1;
+				    return list.indexOf(val) < 1;
 			      }
 
 			function saveNew(num,val){
