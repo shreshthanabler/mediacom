@@ -427,7 +427,7 @@
 					<!--	<select id ="client" ng-change="clientSelected(campaign.client)" ng-model="campaign.client" material-select watch required>
 							<option ng-repeat="client in clientList">{{client}}</option>
 						</select>-->
-						<input list="client" id="clientName" name="browser" ng-model="campaign.client" onkeypress="clientSelected(this.value)" placeholder="Kundenavn">
+						<input list="client" id="clientName" name="browser" ng-model="campaign.client" onchange="clientSelected(this.value)" placeholder="Kundenavn">
 						<datalist id="client">
 						<!--	<option ng-repeat="client in clientList">{{client}}</option>-->
 						</datalist>						
