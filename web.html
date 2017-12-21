@@ -641,22 +641,41 @@
 			gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',
-			  range: "Sheet2!A2:D600",
+			  range: "Sheet2!A2:A600",
 			}).then(function(response) {
 			  var range = response.result;
 			  if (range.values.length > 0) {
 			   var options = '';
+
+			  for(var i = 0; i < range.values.length; i++){
+			    options += '<option value="'+range.values[i]+'" />';
+			  }
+			  document.getElementById('client').innerHTML = options;
+			  } else {
+			    //appendPre('No data found.');
+			  }
+			}, function(response) {
+			  appendPre('Error: ' + response.result.error.message);
+			});
+		      }
+			
+			function listProducts() {
+			gapi.client.sheets.spreadsheets.values.get({
+			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+			  spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',
+			  range: "Sheet2!B2:D600",
+			}).then(function(response) {
+			  var range = response.result;
+			  if (range.values.length > 0) {
 			   var optionsOver = '';
 		           var optionsProd= '';
 			   var optionsReg = '';
 
 			  for(var i = 0; i < range.values.length; i++){
-			    options += '<option value="'+range.values[i][1]+'" />';
-		 	    optionsOver += '<option value="'+range.values[i][2]+'" />';
-			    optionsProd += '<option value="'+range.values[i][3]+'" />';
+		 	    optionsOver += '<option value="'+range.values[i][1]+'" />';
+			    optionsProd += '<option value="'+range.values[i][2]+'" />';
 			    optionsReg += '<option value="'+range.values[i][0]+'" />';
 			  }
-			  document.getElementById('client').innerHTML = options;
 			  document.getElementById('over').innerHTML = optionsOver;
 			  document.getElementById('product').innerHTML = optionsProd;
 			  document.getElementById('region').innerHTML = optionsReg;
@@ -736,7 +755,7 @@
 					document.getElementById("geolocation").style.display="block";
 				}
 				else{
-					listClients();
+					listProducts();
 					document.getElementById("datepicker").style.display="none";
 					document.getElementById("geolocation").style.display="none";
 				}
