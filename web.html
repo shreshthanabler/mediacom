@@ -429,7 +429,7 @@
 						</select>-->
 						<input list="client" id="clientName" name="browser" ng-model="campaign.client" ng-change="clientSelected(campaign.client)" placeholder="Kundenavn">
 						<datalist id="client">
-							<option ng-repeat="client in clientList">{{client}}</option>
+						<!--	<option ng-repeat="client in clientList">{{client}}</option>-->
 						</datalist>						
 					</div>
 				</div>	
@@ -641,19 +641,20 @@
 			gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',
-			  range: "Sheet2!A2:A40",
+			  range: "Sheet2!A2:A400",
 			}).then(function(response) {
 			  var range = response.result;
-			/*  if (range.values.length > 0) {
-			    appendPre('Name, Major:');
-			    for (i = 0; i < range.values.length; i++) {
-			      var row = range.values[i];
-			      // Print columns A and E, which correspond to indices 0 and 4.
-			      appendPre(row[0] + ', ' + row[4]);
+			  if (range.values.length > 0) {
+			   var options = '';
+
+			  for(var i = 0; i < range.values.length; i++)
+			    options += '<option value="'+range.values[i]+'" />';
+
+			  document.getElementById('client').innerHTML = options;
 			    }
 			  } else {
-			    appendPre('No data found.');
-			  }*/
+			    //appendPre('No data found.');
+			  }
 			}, function(response) {
 			  appendPre('Error: ' + response.result.error.message);
 			});
