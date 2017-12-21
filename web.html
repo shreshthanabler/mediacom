@@ -651,15 +651,67 @@
 			   var optionsReg = '';
 
 			  for(var i = 0; i < range.values.length; i++){
-			    options += '<option value="'+range.values[i][0]+'" />';
-		 	    optionsOver += '<option value="'+range.values[i][1]+'" />';
-			    optionsProd += '<option value="'+range.values[i][2]+'" />';
-			    optionsReg += '<option value="'+range.values[i][3]+'" />';
+			    options += '<option value="'+range.values[i][1]+'" />';
+		 	    optionsOver += '<option value="'+range.values[i][2]+'" />';
+			    optionsProd += '<option value="'+range.values[i][3]+'" />';
+			    optionsReg += '<option value="'+range.values[i][0]+'" />';
 			  }
 			  document.getElementById('client').innerHTML = options;
 			  document.getElementById('over').innerHTML = optionsOver;
 			  document.getElementById('product').innerHTML = optionsProd;
 			  document.getElementById('region').innerHTML = optionsReg;
+			    
+			  } else {
+			    //appendPre('No data found.');
+			  }
+			}, function(response) {
+			  appendPre('Error: ' + response.result.error.message);
+			});
+		      }
+			
+			 function listClientsTINE() {
+			gapi.client.sheets.spreadsheets.values.get({
+			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+			  spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',
+			  range: "Sheet2!E2:F70",
+			}).then(function(response) {
+			  var range = response.result;
+			  if (range.values.length > 0) {
+			   var optionsOver = '';
+		           var optionsProd= '';
+
+			  for(var i = 0; i < range.values.length; i++){
+		 	    optionsOver += '<option value="'+range.values[i][0]+'" />';
+			    optionsProd += '<option value="'+range.values[i][1]+'" />';
+			  }
+			  document.getElementById('over').innerHTML = optionsOver;
+			  document.getElementById('product').innerHTML = optionsProd;
+			    
+			  } else {
+			    //appendPre('No data found.');
+			  }
+			}, function(response) {
+			  appendPre('Error: ' + response.result.error.message);
+			});
+		      }
+			
+			 function listClientsSB() {
+			gapi.client.sheets.spreadsheets.values.get({
+			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+			  spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',
+			  range: "Sheet2!G2:H30",
+			}).then(function(response) {
+			  var range = response.result;
+			  if (range.values.length > 0) {
+			   var optionsOver = '';
+		           var optionsProd= '';
+
+			  for(var i = 0; i < range.values.length; i++){
+		 	    optionsOver += '<option value="'+range.values[i][0]+'" />';
+			    optionsProd += '<option value="'+range.values[i][1]+'" />';
+			  }
+			  document.getElementById('over').innerHTML = optionsOver;
+			  document.getElementById('product').innerHTML = optionsProd;
 			    
 			  } else {
 			    //appendPre('No data found.');
