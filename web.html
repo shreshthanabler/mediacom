@@ -856,7 +856,7 @@
 				}
 			    }
 
-		/*	function saveNew(num,val){
+			function saveNew(num,val){
 				 var params = {
 				// The ID of the spreadsheet to update.
 				spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',  // TODO: Update placeholder value.
@@ -874,7 +874,7 @@
 				// TODO: Add desired properties to the request body. All existing properties
 				// will be replaced.
 			      };
-			  switch (num){
+			/*  switch (num){
 				case 1:
 				  	//Client add
 					params['range']='Sheet2!A1';  // TODO: Update placeholder value.
@@ -909,7 +909,7 @@
 					break;
 				default:
 					  break;
-			     }
+			     }*/
 					 
 			      var request = gapi.client.sheets.spreadsheets.values.append(params, resource);
       				request.then(function(response) {
@@ -918,7 +918,7 @@
 			      }, function(reason) {
 				console.error('error: ' + reason.result.error.message);
 			      });
-			}*/
+			}
 			
 		    </script>
 
