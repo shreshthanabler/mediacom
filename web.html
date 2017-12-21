@@ -427,7 +427,7 @@
 					<!--	<select id ="client" ng-change="clientSelected(campaign.client)" ng-model="campaign.client" material-select watch required>
 							<option ng-repeat="client in clientList">{{client}}</option>
 						</select>-->
-						<input list="client" id="clientName" name="browser" ng-model="campaign.client" ng-change="clientSelected(campaign.client)" placeholder="Kundenavn">
+						<input list="client" id="clientName" name="browser" ng-model="campaign.client" onchange="clientSelected(this.value)" placeholder="Kundenavn">
 						<datalist id="client">
 						<!--	<option ng-repeat="client in clientList">{{client}}</option>-->
 						</datalist>						
@@ -668,6 +668,33 @@
 			  appendPre('Error: ' + response.result.error.message);
 			});
 		      }
+			
+			function clientSelected(client){
+				console.log(client);
+				if(client.match(/\bTINE/gi)){
+					console.log("TINE");
+					document.getElementById("datepicker").style.display="block";
+					document.getElementById("geolocation").style.display="none";
+				}
+				else if(client.match(/\bSpareBank 1/gi)){
+					console.log("SpareBank 1");
+					document.getElementById("datepicker").style.display="none";
+					document.getElementById("geolocation").style.display="block";
+				}
+				else{
+					document.getElementById("datepicker").style.display="none";
+					document.getElementById("geolocation").style.display="none";
+				}
+				document.getElementById("over").value="";
+				document.getElementById("product").value="";
+				document.getElementById("region").value="";
+				document.getElementById("date").value="";
+				document.getElementById("name").value="";
+				document.getElementById("info").value="";
+				document.getElementById("campaignName").value="";
+				
+			}
+			
 			function makeApiCall() {
 			      var operator_name = document.getElementById('email').value;
 			      var client_name = document.getElementById('clientName').value;
