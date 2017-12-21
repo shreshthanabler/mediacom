@@ -796,8 +796,10 @@
 				}
 				saveNew(3,product_name);
 			      }
-			      if(isInArray(regionList, region)){
-				saveNew(4,region);
+			      if(client.match(/\bSpareBank 1/gi)){
+			      	if(isInArray(regionList, region)){
+					saveNew(4,region);
+			      	}
 			      }
 			      var params = {
 				// The ID of the spreadsheet to update.
