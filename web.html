@@ -486,7 +486,7 @@
 					<div class="col s12 m7 l9">
 						<input list="region" id="regionName" name="region" ng-model="campaign.region" placeholder="Region" ng-change="regionSelected()">
 						<datalist id="region">
-							<option ng-repeat="region in regionList">{{region}}</option>
+						<!--	<option ng-repeat="region in regionList">{{region}}</option>-->
 						</datalist>		    
 					</div>
 				</div>				
@@ -641,22 +641,25 @@
 			gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',
-			  range: "Sheet2!A2:c600",
+			  range: "Sheet2!A2:D600",
 			}).then(function(response) {
 			  var range = response.result;
 			  if (range.values.length > 0) {
 			   var options = '';
 			   var optionsOver = '';
 		           var optionsProd= '';
+			   var optionsReg = '';
 
 			  for(var i = 0; i < range.values.length; i++){
 			    options += '<option value="'+range.values[i][0]+'" />';
 		 	    optionsOver += '<option value="'+range.values[i][1]+'" />';
 			    optionsProd += '<option value="'+range.values[i][2]+'" />';
+			    optionsReg += '<option value="'+range.values[i][3]+'" />';
 			  }
 			  document.getElementById('client').innerHTML = options;
 			  document.getElementById('over').innerHTML = optionsOver;
 			  document.getElementById('product').innerHTML = optionsProd;
+			  document.getElementById('region').innerHTML = optionsReg;
 			    
 			  } else {
 			    //appendPre('No data found.');
