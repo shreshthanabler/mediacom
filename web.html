@@ -782,7 +782,7 @@
 				if(client_name.match(/\bTINE/gi)){
 				   saveNew(5,over_name);
 				}
-				else if(client.match(/\bSpareBank 1/gi)){
+				else if(client_name.match(/\bSpareBank 1/gi)){
 				   saveNew(6,over_name);
 				}
 				saveNew(2,over_name);
@@ -791,12 +791,12 @@
 				if(client_name.match(/\bTINE/gi)){
 				   saveNew(7,product_name);
 				}
-				else if(client.match(/\bSpareBank 1/gi)){
+				else if(client_name.match(/\bSpareBank 1/gi)){
 				   saveNew(8,product_name);
 				}
 				saveNew(3,product_name);
 			      }
-			      if(client.match(/\bSpareBank 1/gi)){
+			      if(client_name.match(/\bSpareBank 1/gi)){
 			      	if(isInArray(regionList, region)){
 					saveNew(4,region);
 			      	}
@@ -885,7 +885,7 @@
 				  	//Client add
 					params['range']='Sheet2!A1';  // TODO: Update placeholder value.
 					break;
-			/*	case 2:
+				case 2:
 					//Over add
 					params.range= 'Sheet2!C1';  // TODO: Update placeholder value.
 					break;
@@ -912,7 +912,7 @@
 				case 8:
 					//SB Product add
 					params.range= 'Sheet2!H1';  // TODO: Update placeholder value.
-					break;*/
+					break;
 				default:
 					  
 			     }
