@@ -775,6 +775,9 @@
 				 region="NA";
 			       }
 				
+			      function isInArray(days, day) {
+				    return days.indexOf(day.toLowerCase()) > -1;
+			      }
 			      if(!(isInArray(clientList, client_name))){
 				saveNew(1,client_name);
 			      }
