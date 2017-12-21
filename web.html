@@ -754,7 +754,16 @@
 					listClientsSB();
 				}
 				else{
-					listProducts();
+					var optionsOver = '';
+		           		var optionsProd= '';
+					for(var i = 0; i < productLists.length; i++){
+						optionsProd += '<option value="'+productLists[i]+'" />';
+					}
+					for(var i = 0; i < overList.length; i++){
+						optionsOver += '<option value="'+overList[i]+'" />';
+					}
+					document.getElementById('over').innerHTML = optionsOver;
+			  		document.getElementById('product').innerHTML = optionsProd;
 				}
 				
 			}
