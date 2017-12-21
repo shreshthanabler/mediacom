@@ -597,7 +597,7 @@
 			  document.getElementById("modal1").style.display='none';
 			  document.getElementById("cover").style.display='none';
 			  
-			  listMajors();
+			  listClients();
 			  //makeApiCall();
 			} else {
 			  authorizeButton.style.display = 'block';  
@@ -637,11 +637,11 @@
 		       * Print the names and majors of students in a sample spreadsheet:
 		       * https://docs.google.com/spreadsheets/d/1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A/edit
 		       */
-		      function listMajors() {
+		      function listClients() {
 			gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',
-			  range: "Sheet2!A2:A400",
+			  range: "Sheet2!A2:c4",
 			}).then(function(response) {
 			  var range = response.result;
 			  if (range.values.length > 0) {
