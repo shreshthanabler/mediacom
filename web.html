@@ -697,7 +697,7 @@
 			gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',
-			  range: "Sheet2!E2:F70",
+			  range: "Sheet2!E2:F600",
 			}).then(function(response) {
 			  var range = response.result;
 			  if (range.values.length > 0) {
@@ -723,7 +723,7 @@
 			gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',
-			  range: "Sheet2!G2:H30",
+			  range: "Sheet2!G2:H600",
 			}).then(function(response) {
 			  var range = response.result;
 			  if (range.values.length > 0) {
@@ -787,23 +787,24 @@
 			      if(isInArray(clientList, client_name)){
 				saveNew(1,client_name);
 			      }
-			      if(isInArray(overList, over_name)){
+			      if(isInArray(overList, over_name
+				saveNew(2,over_name);					   
 				if(client_name.match(/\bTINE/gi)){
 				   saveNew(5,over_name);
 				}
 				else if(client_name.match(/\bSpareBank 1/gi)){
 				   saveNew(6,over_name);
 				}
-				saveNew(2,over_name);
+
 			      }
 			      if(isInArray(productList, product_name)){
+				saveNew(3,product_name);
 				if(client_name.match(/\bTINE/gi)){
 				   saveNew(7,product_name);
 				}
 				else if(client_name.match(/\bSpareBank 1/gi)){
 				   saveNew(8,product_name);
 				}
-				saveNew(3,product_name);
 			      }
 			      if(client_name.match(/\bSpareBank 1/gi)){
 			      	if(isInArray(regionList, region)){
