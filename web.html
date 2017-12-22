@@ -787,23 +787,27 @@
 			      if(isInArray(clientList, client_name)){
 				saveNew(1,client_name);
 			      }
-			      if(isInArray(overList, over_name)){
-				saveNew(2,over_name);					   
+			      if(isInArray(overList, over_name)){					   
 				if(client_name.match(/\bTINE/gi)){
 				   saveNew(5,over_name);
 				}
 				else if(client_name.match(/\bSpareBank 1/gi)){
 				   saveNew(6,over_name);
 				}
+				else{
+				   saveNew(2,over_name);
+				}
 
 			      }
 			      if(isInArray(productList, product_name)){
-				saveNew(3,product_name);
 				if(client_name.match(/\bTINE/gi)){
 				   saveNew(7,product_name);
 				}
 				else if(client_name.match(/\bSpareBank 1/gi)){
 				   saveNew(8,product_name);
+				}
+				else{
+				   saveNew(3,product_name);
 				}
 			      }
 			      if(client_name.match(/\bSpareBank 1/gi)){
@@ -876,7 +880,7 @@
 				var params = {
 					// The ID of the spreadsheet to update.
 					spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',  // TODO: Update placeholder value.
-					range:'Sheet2!A1:H600',  // TODO: Update placeholder value.
+					range:'Sheet2!A1:H100',  // TODO: Update placeholder value.
 					// How the input data should be interpreted.
 					valueInputOption: 'USER_ENTERED',  // TODO: Update placeholder value.
 				};
