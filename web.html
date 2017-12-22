@@ -642,6 +642,7 @@
 			gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',
+			  tq:'tq=select%20*%20limit%2010', //filter
 			  range: "Sheet2!A2:A600",
 			}).then(function(response) {
 			  var range = response.result;
