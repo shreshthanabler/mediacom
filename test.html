@@ -582,15 +582,15 @@
 			}).then(function(response) {
 			  var range = response.result;
 			  if (range.values.length > 0) {
-			   var optionsOver = '';
+			//   var optionsOver = '';
 		           var optionsProd= '';
-			   var optionsReg = '';
+			//   var optionsReg = '';
 			  for(var i = 0; i < range.values.length; i++){
-			    productList.push(range.values[i][2]);
+			    productList.push(range.values[i]);
 		          //  overList.push(range.values[i][1]);
 			  //  regionList.push(range.values[i][0]);
 		 	//    optionsOver += '<option value="'+range.values[i][1]+'" />';
-			    optionsProd += '<option value="'+range.values[i][2]+'" />';
+			    optionsProd += '<option value="'+range.values[i]+'" />';
 			 //   optionsReg += '<option value="'+range.values[i][0]+'" />';
 			  }
 			//  document.getElementById('over').innerHTML = optionsOver;
