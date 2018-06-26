@@ -556,7 +556,7 @@
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1WSD_EHQ_yKrXBJbrcxReOHlKMz58LHdyQJHKrV-4UJM',
 			//  tq:'select%20*%20limit%2010', //filter
-			  range: "Sheet1!B2:A600",
+			  range: "Sheet1!B2:B600",
 			}).then(function(response) {
 			  var range = response.result;
 			  if (range.values.length > 0) {
@@ -578,7 +578,7 @@
 			gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1WSD_EHQ_yKrXBJbrcxReOHlKMz58LHdyQJHKrV-4UJM',
-			  range: "Sheet1!B2:D600",
+			  range: "Sheet1!D2:D600",
 			}).then(function(response) {
 			  var range = response.result;
 			  if (range.values.length > 0) {
@@ -587,15 +587,15 @@
 			   var optionsReg = '';
 			  for(var i = 0; i < range.values.length; i++){
 			    productList.push(range.values[i][2]);
-		            overList.push(range.values[i][1]);
-			    regionList.push(range.values[i][0]);
+		          //  overList.push(range.values[i][1]);
+			  //  regionList.push(range.values[i][0]);
 		 	//    optionsOver += '<option value="'+range.values[i][1]+'" />';
 			    optionsProd += '<option value="'+range.values[i][2]+'" />';
-			    optionsReg += '<option value="'+range.values[i][0]+'" />';
+			 //   optionsReg += '<option value="'+range.values[i][0]+'" />';
 			  }
 			//  document.getElementById('over').innerHTML = optionsOver;
-			//  document.getElementById('product').innerHTML = optionsProd;
-			  document.getElementById('region').innerHTML = optionsReg;
+			  document.getElementById('product').innerHTML = optionsProd;
+			//  document.getElementById('region').innerHTML = optionsReg;
 			    
 			  } else {
 			    //appendPre('No data found.');
