@@ -391,8 +391,8 @@
 					<!--	<select id ="client" ng-change="clientSelected(campaign.client)" ng-model="campaign.client" material-select watch required>
 							<option ng-repeat="client in clientList">{{client}}</option>
 						</select>-->
-						<input list="client" id="clientName" name="browser" ng-model="campaign.client" onchange="clientSelected(this.value)" ng-change="clientSelected(campaign.client)" placeholder="Kundenavn">
-						<datalist id="client">
+						<input list="source" id="sourceName" name="browser" ng-model="campaign.scource" onchange="sourceSelected(this.value)" ng-change="sourceSelected(campaign.source)" placeholder="Select source">
+						<datalist id="source">
 						<!--	<option ng-repeat="client in clientList">{{client}}</option>-->
 						</datalist>						
 					</div>
@@ -405,7 +405,7 @@
 					<!--	<select id ="client" ng-change="clientSelected(campaign.client)" ng-model="campaign.client" material-select watch required>
 							<option ng-repeat="client in clientList">{{client}}</option>
 						</select>-->
-						<input list="client" id="clientName" name="browser" ng-model="campaign.client" onchange="clientSelected(this.value)" ng-change="clientSelected(campaign.client)" placeholder="Kundenavn">
+						<input list="client" id="clientName" name="browser" ng-model="campaign.client" onchange="clientSelected(this.value)" ng-change="clientSelected(campaign.client)" placeholder="Select Campaign">
 						<datalist id="client">
 						<!--	<option ng-repeat="client in clientList">{{client}}</option>-->
 						</datalist>						
@@ -556,7 +556,7 @@
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1WSD_EHQ_yKrXBJbrcxReOHlKMz58LHdyQJHKrV-4UJM',
 			//  tq:'select%20*%20limit%2010', //filter
-			  range: "Sheet1!A2:A600",
+			  range: "Sheet1!B2:A600",
 			}).then(function(response) {
 			  var range = response.result;
 			  if (range.values.length > 0) {
@@ -565,7 +565,7 @@
 			    clientList.push(range.values[i][0]);
 			    options += '<option value="'+range.values[i]+'" />';
 			  }
-			  document.getElementById('client').innerHTML = options;
+			  document.getElementById('source').innerHTML = options;
 			  } else {
 			    //appendPre('No data found.');
 			  }
