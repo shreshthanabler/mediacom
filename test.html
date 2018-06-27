@@ -172,18 +172,6 @@
 					$scope.info="";
 					$scope.campaignName="";
 				}
-				
-				
-
-				
-				$('.datepicker').pickadate({
-					selectMonths: true, // Creates a dropdown to control month
-					selectYears: 15, // Creates a dropdown of 15 years to control year,
-					today: 'Today',
-					clear: 'Clear',
-					close: 'Ok',
-					closeOnSelect: true // Close upon selecting a date,
-				  });
 		
 			});
 			
@@ -410,7 +398,7 @@
 			   if (range.values.length > 0) {
 				var optionsProd= '';
 			  for(var i = 0; i < range.values.length; i++){
-			    if(range.values[i][0]=="Over-all"){
+			    if(range.values[i][0]==client){
 				productList.push(range.values[i][2]);
 			    	optionsProd += '<option value="'+range.values[i][2]+'" />';
 			    }
