@@ -441,57 +441,7 @@
 			  range: "Sheet1!B2:D700",
 			}).then(function(response) {
 			  var range = response.result;
-			  retrun range;
-			}, function(response) {
-			  appendPre('Error: ' + response.result.error.message);
-			});
-		      }
-			
-			 function listClientsTINE() {
-			gapi.client.sheets.spreadsheets.values.get({
-			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-			  spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',
-			  range: "Sheet2!E2:F600",
-			}).then(function(response) {
-			  var range = response.result;
-			  if (range.values.length > 0) {
-			   var optionsOver = '';
-		           var optionsProd= '';
-			  for(var i = 0; i < range.values.length; i++){
-		 	    optionsOver += '<option value="'+range.values[i][0]+'" />';
-			    optionsProd += '<option value="'+range.values[i][1]+'" />';
-			  }
-			//  document.getElementById('over').innerHTML = optionsOver;
-			//  document.getElementById('product').innerHTML = optionsProd;
-			    
-			  } else {
-			    //appendPre('No data found.');
-			  }
-			}, function(response) {
-			  appendPre('Error: ' + response.result.error.message);
-			});
-		      }
-			
-			 function listClientsSB() {
-			gapi.client.sheets.spreadsheets.values.get({
-			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-			  spreadsheetId: '1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A',
-			  range: "Sheet2!G2:H600",
-			}).then(function(response) {
-			  var range = response.result;
-			  if (range.values.length > 0) {
-			   var optionsOver = '';
-		           var optionsProd= '';
-			  for(var i = 0; i < range.values.length; i++){
-		 	    optionsOver += '<option value="'+range.values[i][0]+'" />';
-			    optionsProd += '<option value="'+range.values[i][1]+'" />';
-			  }
-			//  document.getElementById('over').innerHTML = optionsOver;
-			//  document.getElementById('product').innerHTML = optionsProd;
-			    
-			  } else {
-			    //appendPre('No data found.');
-			  }
+			  return range;
 			}, function(response) {
 			  appendPre('Error: ' + response.result.error.message);
 			});
