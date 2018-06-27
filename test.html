@@ -384,15 +384,20 @@
 			function onlyUnique(value, index, self) { 
 			    return self.indexOf(value) === index;
 			}
-			
+			var clientRange=[];
 			function listProducts() {
 			gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1WSD_EHQ_yKrXBJbrcxReOHlKMz58LHdyQJHKrV-4UJM',
 			  range: "Sheet1!B2:D700",
 			}).then(function(response) {
-			  var range = response.result;
-			  return range;
+			   clientRange=[];
+			   var range = response.result;
+			   if (range.values.length > 0) { 
+			  for(var i = 0; i < range.values.length; i++){{
+			    clientRange.push(range.values[i][0]);
+			  }
+			  }
 			}, function(response) {
 			  appendPre('Error: ' + response.result.error.message);
 			});
@@ -400,7 +405,7 @@
 			
 			function sourceSelected(client){
 				console.log(client);
-				var clientRange=listProducts();
+				listProducts();
 				productList=[];
 			  if (clientRange.values.length > 0) {
 		           var optionsProd= '';
