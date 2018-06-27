@@ -130,10 +130,17 @@
 					-webkit-transform: scale(0);
 				}
 			}
-			
-			textarea {
-			    width: 105% !important;
-			    height: 8rem !important;
+			@media (max-width:990px){
+				textarea {
+				    width: 105% !important;
+				    height: 8rem !important;
+				}
+			}
+			@media (min-width:991px){
+				textarea {
+				    width: 102% !important;
+				    height: 8rem !important;
+				}
 			}
 			
 		</style>
@@ -181,7 +188,7 @@
 			});
 			
 		</script>
-		<header>	
+	<!--	<header>	
 			<main>
 				<nav>
 					<div class="nav-wrapper z-depth-0 white" ng-controller="InfoController">
@@ -195,7 +202,7 @@
 					</div>
 				</nav>
 			</main>	
-		</header>
+		</header>-->
 		<div class="row col s12 m12 l12" ng-controller="InfoController">
 			<!--Add buttons to initiate auth sequence and sign out
 			 <button id="authorize-button" style="display: none;">Authorize</button>
