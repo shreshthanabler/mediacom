@@ -55,7 +55,7 @@
 				width: 8.125rem;
 			}
 			.container{
-				top:80px;
+				top:60px;
 				position:relative;
 				border:1px solid black;
 			/*	left:50px !important;*/
@@ -388,6 +388,7 @@
 			var clientRange=[];			
 			function sourceSelected(client){
 				console.log(client);
+			    if(isInArray(clientList, client)){
 			    gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1WSD_EHQ_yKrXBJbrcxReOHlKMz58LHdyQJHKrV-4UJM',
@@ -408,7 +409,7 @@
 			}, function(response) {
 			  appendPre('Error: ' + response.result.error.message);
 			});
-				
+			    }	
 			}
 			
 			function makeApiCall() {
