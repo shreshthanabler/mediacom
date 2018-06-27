@@ -384,42 +384,30 @@
 			function onlyUnique(value, index, self) { 
 			    return self.indexOf(value) === index;
 			}
-			var clientRange=[];
-			function listProducts() {
-			gapi.client.sheets.spreadsheets.values.get({
+			
+			var clientRange=[];			
+			function sourceSelected(client){
+				console.log(client);
+			    gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1WSD_EHQ_yKrXBJbrcxReOHlKMz58LHdyQJHKrV-4UJM',
 			  range: "Sheet1!B2:D700",
 			}).then(function(response) {
-			   clientRange=[];
+			   productList=[];
 			   var range = response.result;
-			   if (range.values.length > 0) { 
+			   if (range.values.length > 0) {
+				var optionsProd= '';
 			  for(var i = 0; i < range.values.length; i++){
-			    clientRange.push(range.values[i][0]);
+			    if(range.values[i][0]=="Over-all"){
+				productList.push(range.values[i][2]);
+			    	optionsProd += '<option value="'+range.values[i][2]+'" />';
+			    }
 			  }
 			  }
+			document.getElementById('client').innerHTML = optionsProd;
 			}, function(response) {
 			  appendPre('Error: ' + response.result.error.message);
 			});
-		      }
-			
-			function sourceSelected(client){
-				console.log(client);
-				listProducts();
-				productList=[];
-			  if (clientRange.values.length > 0) {
-		           var optionsProd= '';
-			  for(var i = 0; i < clientRange.values.length; i++){
-			    if(clientRange.values[i][0]=="Over-all"){
-				productList.push(clientRange.values[i][2]);
-			    	optionsProd += '<option value="'+clientRange.values[i][2]+'" />';
-			    }
-			  }
-			  document.getElementById('client').innerHTML = optionsProd;
-			    
-			  } else {
-			    //appendPre('No data found.');
-			  }
 				
 			}
 			
