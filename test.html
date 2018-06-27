@@ -55,7 +55,7 @@
 				width: 8.125rem;
 			}
 			.container{
-				top:60px;
+				top:80px;
 				position:relative;
 				border:1px solid black;
 			/*	left:50px !important;*/
@@ -239,7 +239,8 @@
 						<p>Comments</p>
 					</div>
 					<div class="col s12 m7 l9">
-						<input id ="name" ng-model="name" placeholder="Enter Comment" ng-change="getCampaignNAme();" required>			    
+						//<input id ="name" ng-model="name" placeholder="Enter Comment" ng-change="getCampaignNAme();" required>			    
+						<textarea name="name" id ="name" ng-model="name" placeholder="Enter Comment" rows="10" cols="30"></textarea>
 					</div>
 				</div>		
 				<div class="row col s4 m2 l4 offset-s2 offset-l4 offset-m4" style="padding-top:7px;">
